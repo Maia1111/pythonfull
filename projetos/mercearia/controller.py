@@ -58,7 +58,7 @@ class ControllerCategoria:
                 "A categoria que deseja alterar já existe"
 
         else:
-            print('A categoria que deseja alater não existe')
+            print('A categoria que deseja alterar não existe')
 
         with open('categoria.txt', 'w') as arq:
             for i in x:
