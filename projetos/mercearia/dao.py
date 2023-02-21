@@ -33,7 +33,7 @@ class DaoVenda:
             arq.writelines(venda.itensVendidos.nome
                            + "|" + venda.itensVendidos.preco
                            + "|" + venda.itensVendidos.categoria
-                           + "|" + venda.quantidadeVendida
+                           + "|" + str(venda.quantidadeVendida)
                            + "|" + venda.comprador
                            + "|" + venda.vendedor
                            + "|" + venda.data)
@@ -60,7 +60,7 @@ class DaoEstoque:
     def salvar(cls, produto: Produtos, quantidade):
         with open('estoque.txt', 'a') as arq:
             arq.writelines(produto.nome +
-                           "|" + produto.preco +
+                           "|" + str(produto.preco) +
                            "|" + produto.categoria +
                            "|" + str(quantidade))
             arq.writelines('\n')
@@ -77,7 +77,7 @@ class DaoEstoque:
 
         if len(cls.estoque) > 0:
             for i in cls.estoque:
-                est.append(Estoque(Produtos(i[0], i[1], i[2]), i[3]))
+                est.append(Estoque(Produtos(i[0], i[1], i[2]), int(i[3])))
 
         return est
 
