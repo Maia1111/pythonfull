@@ -60,110 +60,110 @@ class DaoEstoque:
     def salvar(cls, produto: Produtos, quantidade):
         with open('estoque.txt', 'a') as arq:
             arq.writelines(produto.nome +
-                        "|" + produto.preco +
-                        "|" + produto.categoria +
-                        "|" + str(quantidade))
+                           "|" + produto.preco +
+                           "|" + produto.categoria +
+                           "|" + str(quantidade))
             arq.writelines('\n')
-
 
     @classmethod
     def ler(cls):
         with open('estoque.txt', 'r') as arq:
-            cls.estoque = arq.readlines
-            
+            cls.estoque = arq.readlines()
+
         cls.estoque = list(map(lambda x: x.replace('\n', ''), cls.estoque))
-        cls.estoque = list(map(lambda x: x.split("|"), cls.estoque ))
-        
+        cls.estoque = list(map(lambda x: x.split("|"), cls.estoque))
+
         est = []
-        
+
         if len(cls.estoque) > 0:
             for i in cls.estoque:
                 est.append(Estoque(Produtos(i[0], i[1], i[2]), i[3]))
-        
+
         return est
 
 
 class DaoFornecedor:
-    
+
     @classmethod
     def salvar(cls, fornecedor: Fornecedor):
         with open('fornecedor.txt', 'a') as arq:
             arq.writelines(fornecedor.nome +
-                           "|" + fornecedor.cnpj + 
+                           "|" + fornecedor.cnpj +
                            "|" + fornecedor.telefone +
                            "|" + fornecedor.categoria)
             arq.writelines('\n')
-    
+
     @classmethod
     def ler(cls):
-        with  open('fornecedor.txt', 'r') as arq:
+        with open('fornecedor.txt', 'r') as arq:
             cls.fornecedor = arq.readlines()
-        
-        cls.fornecedor = list(map(lambda x: x.replace('\n', ''), cls.fornecedor))
+
+        cls.fornecedor = list(
+            map(lambda x: x.replace('\n', ''), cls.fornecedor))
         cls.fornecedor = list(map(lambda x: x.split('|'), cls.fornecedor))
-        
+
         forn = []
-        
+
         for i in cls.fornecedor:
             forn.append(Fornecedor(i[0], i[1], i[2], i[3]))
-            
+
         return forn
 
 
 class DaoPessoa:
-    
+
     @classmethod
-    def salvar(cls, pessoa:Pessoas):
+    def salvar(cls, pessoa: Pessoas):
         with open('pessoas.txt', 'a') as arq:
-            arq.writelines(pessoa.nome + 
-                           "|" + pessoa.telefone + 
-                           "|" + pessoa.cpf + 
+            arq.writelines(pessoa.nome +
+                           "|" + pessoa.telefone +
+                           "|" + pessoa.cpf +
                            "|" + pessoa.email)
             arq.writelines('\n')
-            
+
     @ classmethod
     def ler(cls):
         with open('pessoas.txt', 'r') as arq:
             cls.clientes = arq.readlines
-            
+
         cls.clientes = list(map(lambda x: x.replace('\n', ''), cls.clientes))
         cls.clientes = list(map(lambda x: x.split('|'), cls.clientes))
-        
+
         clientes = []
-        
+
         for i in cls.clientes:
             clientes.append(Pessoas(i[0], i[1], i[2], i[3], i[4]))
-            
+
         return clientes
-    
-    
+
+
 class DaoFuncionario:
-    
+
     @classmethod
-    def salvar(cls, funcionario:Funcionarios):
+    def salvar(cls, funcionario: Funcionarios):
         with open('funcionarios.txt', 'a') as arq:
             arq.writelines(funcionario.clt +
                            "|" + funcionario.nome +
                            "|" + funcionario.telefone +
                            "|" + funcionario.cpf +
                            "|" + funcionario.email +
-                           "|" + funcionario.endereco  )
+                           "|" + funcionario.endereco)
             arq.writelines('\n')
-        
-        
+
     @classmethod
     def ler(cls):
         with open('funcionarios.txt', 'r') as arq:
             cls.funcionario = arq.readlines()
-            
-            cls.funcionario = list(map(lambda x: x.replace('\n'), ''), cls.funcionario)
-            cls.funcionario = list(map(lambda x: x.split('|'), cls.funcionario))
-            
+
+            cls.funcionario = list(
+                map(lambda x: x.replace('\n'), ''), cls.funcionario)
+            cls.funcionario = list(
+                map(lambda x: x.split('|'), cls.funcionario))
+
             funcionario = []
-            
+
             for i in funcionario:
-                funcionario.append(Funcionarios(i[0],i[1], i[2], i[3], i[4], i[5]))
-            
+                funcionario.append(Funcionarios(
+                    i[0], i[1], i[2], i[3], i[4], i[5]))
+
             return funcionario
-
-

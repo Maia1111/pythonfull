@@ -1,0 +1,2 @@
+banana|10|Frutas|10
+batata|6|Verduras|11
