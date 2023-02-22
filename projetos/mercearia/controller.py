@@ -225,4 +225,4 @@ class ControllerVenda:
 
 
 a = ControllerVenda()
-a.cadastrarVenda('banana', 'Jose', 'Marcos', 2)
+a.cadastrarVenda('banana', 'Jose', 'Marcos', 11)

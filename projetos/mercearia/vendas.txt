@@ -1,4 +1,4 @@
-banana|20|Frutas|1|Marcos|Jose|22/02/23
-banana|20|Frutas|1|Marcos|Jose|22/02/23
-banana|20|Frutas|1|Marcos|Jose|22/02/23
 banana|20|Frutas|2|Marcos|Jose|22/02/23
+banana|20|Frutas|11|Marcos|Jose|22/02/23
+banana|20|Frutas|11|Marcos|Jose|22/02/23
+banana|20|Frutas|11|Marcos|Jose|22/02/23
