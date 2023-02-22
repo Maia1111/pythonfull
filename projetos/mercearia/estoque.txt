@@ -1,3 +1,0 @@
-banana|20|Frutas|19
-melancia|20|Frutas|26
-limão|20|Frutas|22
