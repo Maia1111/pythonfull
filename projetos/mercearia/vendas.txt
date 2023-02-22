@@ -2,3 +2,6 @@ banana|20|Frutas|2|Marcos|Jose|22/02/23
 banana|20|Frutas|11|Marcos|Jose|22/02/23
 banana|20|Frutas|11|Marcos|Jose|22/02/23
 banana|20|Frutas|11|Marcos|Jose|22/02/23
+melancia|20|Frutas|2|jose|marcos|22/02/23
+melancia|20|Frutas|2|jose|marcos|22/02/23
+limão|20|Frutas|8|jose|marcos|22/02/23

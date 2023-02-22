@@ -223,6 +223,28 @@ class ControllerVenda:
             print('Venda Realizada com Sucesso!')
             return valorCompra
 
+    def relatorioProdutos(self):
+        vendas = DaoVenda.ler()
+        produtos = {}
+
+        print('=========================================')
+        print("Relatório de produtos mais Vendidos")
+        print('=========================================')
+        for i in vendas:
+            nome = i.itensVendidos.nome
+            quantidade = i.vendedor
+            if nome in produtos:
+                produtos[nome] += int(quantidade)
+            else:
+                produtos[nome] = int(quantidade)
+
+        ordenado = sorted(produtos.items(), key=lambda x: x[1], reverse=True)
+
+        for nome, quantidade in ordenado:
+            print(f'Nome:{nome}')
+            print(f'Quantidade:{quantidade}')
+            print('__________________________________')
+
 
 a = ControllerVenda()
-a.cadastrarVenda('banana', 'Jose', 'Marcos', 11)
+a.relatorioProdutos()
