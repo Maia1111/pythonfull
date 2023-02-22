@@ -146,7 +146,7 @@ class ControllerEstoque:
 
             for i in x:
                 arq.writelines(i.produto.nome +
-                               "|" + i.produto.preco +
+                               "|" + str(i.produto.preco) +
                                "|" + i.produto.categoria +
                                "|" + str(i.quantidade))
                 arq.writelines('\n')
@@ -166,54 +166,3 @@ class ControllerEstoque:
                 print(f'Categoria: {i.produto.categoria} ')
                 print(f'Quantidade: {i.quantidade}')
                 print('--------------------------------------------')
-
-
-class ControllerVenda:
-
-    def cadastrarVenda(self, nomeProduto, vendedor, comprador, quantidadeVendida):
-
-        estoque = DaoEstoque().ler()
-
-        temp = []
-        existe = False
-        quantidade = False
-
-        for i in estoque:
-            if not existe:
-                if i.produto.nome == nomeProduto:
-                    existe = True
-
-                    if int(i.quantidade) >= quantidadeVendida:
-                        quantidade = True
-                        i.quantidade -= quantidadeVendida
-
-                        vendido = Venda(Produtos(i.produto.nome, i.produto.preco,
-                                        i.produto.categoria), vendedor, comprador, quantidadeVendida)
-
-                        valorCompra = int(quantidadeVendida) * \
-                            int(i.produto.preco)
-                        DaoVenda().salvar(vendido)
-
-            temp.append([Produtos(i.produto.nome, i.produto.preco,
-                        i.produto.categoria), i.quantidade])
-
-        with open('estoque.txt', 'w') as arq:
-            for i in temp:
-                arq.write(i[0].nome + "|" +
-                          (i[0].preco) + "|" + i[0].categoria + "|" + str(i[1]))
-                arq.write('\n')
-
-        if existe == False:
-            print('O produto não existe!')
-            return None
-
-        elif not quantidade:
-            print('Quantidade de produto insuficiente para venda!')
-
-        else:
-            return valorCompra
-
-
-a = ControllerVenda()
-
-a.cadastrarVenda('banana', 'Manoel', 'Jose', 1)

@@ -1,1 +1,0 @@
-banana|10|Frutas|1|Jose|Manoel|21/02/23
